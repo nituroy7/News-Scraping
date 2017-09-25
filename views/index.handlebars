@@ -1,0 +1,54 @@
+<style>
+    body { background-image: url(../image/pic3.jpg);
+    background-position: center;
+    font-family: 'Roboto', sans-serif;
+}
+    header{
+      padding: 30px;
+      width: 100%;
+      background-image: url(../image/pic5.jpg);
+      background-position: center;
+      font-family: 'Roboto', sans-serif;
+    }
+    #wrapper {
+      width: 960px;
+      margin-left: auto;
+      margin-right: auto;
+      padding-top: 5%;
+    }
+    #articles {
+      display: inline-block;
+      overflow: auto;
+      width: 60%;
+      height: 700px;
+    }
+    #notes {
+      float: right;
+      width: 30%;
+    }
+    p {
+      background-color: #ffffff;
+      padding : 10px;
+      border : 1px solid grey;
+    }
+    .savebtn{
+      padding: 5px;
+      margin : 5px;
+      font-size: 14px;
+      background-color:#ccced1;
+    }
+  </style>
+<div id="wrapper">
+<div id="articles">
+    {{#each article}}
+        <br>
+        <p>
+        {{this.title}}<br>
+        {{this.link}}
+        </p>
+        <form action="/saveArticle/{{this._id}}" method="POST">
+            <button class='savebtn' savebtn-id=" + {{this._id}} +">Save Article</button><br>            
+        </form>
+    {{/each}}
+</div>
+</div>
